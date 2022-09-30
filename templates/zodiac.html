@@ -21,7 +21,11 @@
         {% for zodiac in chinese_zodiac %}
         <img src="{{zodiac.pic_url}}" alt="{{ zodiac.animal }} picture" style="width:200px">
         <li>Animal: {{ zodiac.animal }}</li>
-        <li>Years: {{ zodiac.year }}</li>
+        <li> Years: 
+        {% for years in zodiac.year %}
+        <span>-{{ years }}</span>
+        {% endfor %}
+        </li>
         {% endfor %}
     </ul>
     

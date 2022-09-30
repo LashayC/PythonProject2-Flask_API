@@ -3,12 +3,8 @@
 
 # imports
 from flask import Flask
-from flask import request
-from flask import redirect
 from flask import jsonify
 from flask import render_template
-from flask import escape
-from flask import url_for
 import json
 
 # create instance of Flask object
@@ -19,13 +15,13 @@ with open("zodiac.json", "r") as zodiac_file:
     # decode json to pythonic data
     zodiac_data = json.load(zodiac_file)
 
-# route to return JSON data
+# endpoint to return JSON zodiac
 @app.route("/alldata")
 def alldata():
     # convert pythonic data to json
     return jsonify(zodiac_data)
 
-# root route
+# endpoint to return zodiac html
 @app.route("/")
 def index():
     return render_template("zodiac.html", chinese_zodiac = zodiac_data["zodiac_animals"])
